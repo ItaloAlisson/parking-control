@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "1fcda6bd-38f0-410e-839f-9a1e43ce9e7e",
+		"name": "Parking Spot Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30032860"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "POST Parking Spot",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parkingSpotNumber\": \"5200\",\n    \"licensePlateCar\": \"QLH8562\",\n    \"brandCar\": \"volkswagen\",\n    \"modelCar\": \"fox\",\n    \"colorCar\": \"black\",\n    \"responsibleName\": \"José Freitas\",\n    \"apartment\": \"202\",\n    \"block\": \"B\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/parking-spot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parking-spot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Parking Spot Errors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parkingSpotNumber\": \"5200\",\n    \"licensePlateCar\": \"QLH8562\",\n    \"brandCar\": \"volkswagen\",\n    \"modelCar\": \"fox\",\n    \"colorCar\": \"black\",\n    \"responsibleName\": \"José Freitas\",\n    \"apartment\": \"202\",\n    \"block\": \"B\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/parking-spot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parking-spot"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get",
+			"item": [
+				{
+					"name": "GET ALL Parking Spot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>ID</th>",
+									"        <th>Parking Spot Number</th>",
+									"        <th>License Plate Car</th>",
+									"        <th>Brand Car</th>",
+									"        <th>Model Car</th>",
+									"        <th>Color Car</th>",
+									"        <th>Registration Date</th>",
+									"        <th>Responsible Name</th>",
+									"        <th>Apartment</th>",
+									"        <th>Block</th>",
+									"    </tr>",
+									"    ",
+									"    {{#each response.content}}",
+									"        <tr>",
+									"            <td>{{id}}</td>",
+									"            <td>{{parkingSpotNumber}}</td>",
+									"            <td>{{licensePlateCar}}</td>",
+									"            <td>{{brandCar}}</td>",
+									"            <td>{{modelCar}}</td>",
+									"            <td>{{colorCar}}</td>",
+									"            <td>{{registrationDate}}</td>",
+									"            <td>{{responsibleName}}</td>",
+									"            <td>{{apartment}}</td>",
+									"            <td>{{block}}</td>",
+									"        </tr>",
+									"    {{/each}}",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/parking-spot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parking-spot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE Parking Spot",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/parking-spot/e8793a2f-87ef-4d6e-8b5e-5d9e50deb036",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parking-spot",
+								"e8793a2f-87ef-4d6e-8b5e-5d9e50deb036"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE Parking Spot Error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/parking-spot/9ddee1d7-e78c-4ed1-8f93-ce1ad194dd99",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parking-spot",
+								"9ddee1d7-e78c-4ed1-8f93-ce1ad194dd99"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"item": [
+				{
+					"name": "DELETE Parking Spot",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/parking-spot/e8793a2f-87ef-4d6e-8b5e-5d9e50deb036",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parking-spot",
+								"e8793a2f-87ef-4d6e-8b5e-5d9e50deb036"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Parking Spot Error",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/parking-spot/9ddee1d7-e78c-4ed1-8f93-ce1ad194dd99",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parking-spot",
+								"9ddee1d7-e78c-4ed1-8f93-ce1ad194dd99"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Put",
+			"item": [
+				{
+					"name": "PUT Parking Spot",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parkingSpotNumber\": \"5200\",\n    \"licensePlateCar\": \"CKE1023\",\n    \"brandCar\": \"volkswagen\",\n    \"modelCar\": \"fox\",\n    \"colorCar\": \"silver\",\n    \"responsibleName\": \"José Freitas\",\n    \"apartment\": \"202\",\n    \"block\": \"B\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/parking-spot/e8793a2f-87ef-4d6e-8b5e-5d9e50deb036",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parking-spot",
+								"e8793a2f-87ef-4d6e-8b5e-5d9e50deb036"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Parking Spot Error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parkingSpotNumber\": \"5200\",\n    \"licensePlateCar\": \"CKE1023\",\n    \"brandCar\": \"volkswagen\",\n    \"modelCar\": \"fox\",\n    \"colorCar\": \"silver\",\n    \"responsibleName\": \"José Freitas\",\n    \"apartment\": \"202\",\n    \"block\": \"B\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/parking-spot/9ddee1d7-e78c-4ed1-8f93-ce1ad194dd99",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parking-spot",
+								"9ddee1d7-e78c-4ed1-8f93-ce1ad194dd99"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
